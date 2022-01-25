@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Receipt Generator</title>
+</head>
+
+<body>
+<p>Dear {{ found_order.person_name }},</p>
+<p style="color: darkblue;">Thanks for placing an order from {{ found_order.company }}. </p>
+<p style="color: green;">It's scheduled to ship on {{ found_order.ship_date|date:"F j, Y" }}.</p>
+<p>Here are the item you've ordered:</p>
+<h3> {{ found_order.product }} </h3>
+{% if found_order.ordered_warranty %}
+    <p>Your warranty information will be included in the packaging.</p>
+{% endif %}
+<p>Sincerely,<br/>{{ found_order.company }}</p>
+</body>
+
+</html>

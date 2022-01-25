@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tasks App</title>
+</head>
+<body>
+<h1> A vary basic list of tasks derived from a DB </h1>
+<hr>
+{% if tasks_list %}
+    {#not needed I think as I carry out the verification in the view#}
+    <ol>
+        {% for task in tasks_list %}
+            <li><span style="color: blue; font-size: 2em; ">{{ task.task_title }}</span> <--> {{ task.task_text }}</li>
+        {% endfor %}
+    </ol>
+{% else %}
+    <p>There are no created tasks!</p>
+{% endif %}
+</body>
+</html>
