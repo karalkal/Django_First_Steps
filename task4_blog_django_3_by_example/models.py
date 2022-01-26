@@ -31,8 +31,6 @@ class Post(models.Model):
 
     """
     custom manager to retrieve all posts with the published status.
-    Post.objects.my_manager()
-    or
     Post.my_manager.all()
     """
     objects = models.Manager()  # The default manager.
