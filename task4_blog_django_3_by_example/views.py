@@ -11,7 +11,7 @@ from .models import Post
 def post_list(request):
     posts = Post.published.all()
     return render(request,
-                  'blog/post/list.html',
+                  'blog1/post/list.html',
                   {'posts': posts})  # 'posts' key is linked to queryset of all Post objects
 
 
@@ -23,5 +23,5 @@ def post_detail(request, year, month, day, post):
                              publish__month=month,
                              publish__day=day)
     return render(request,
-                  'blog/post/detail.html',
+                  'blog1/post/detail.html',
                   {'post': post})
