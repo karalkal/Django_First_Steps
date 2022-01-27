@@ -6,13 +6,25 @@ from django.shortcuts import render, HttpResponse
 
 from django.shortcuts import render, get_object_or_404
 from .models import Post
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def post_list(request):
-    posts = Post.published.all()
+    object_list = Post.published.all()
+    paginator = Paginator(object_list, 3)  # instance of Paginator class with 3 posts in each page
+    page = request.GET.get('page')  # gets current page number
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer deliver the first page
+        posts = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range deliver last page of results
+        posts = paginator.page(paginator.num_pages)
     return render(request,
                   'blog1/post/list.html',
-                  {'posts': posts})  # 'posts' key is linked to queryset of all Post objects
+                  {'page': page,
+                   'posts': posts})  # 'posts' key is linked to queryset of all Post objects
 
 
 def post_detail(request, year, month, day, post):
