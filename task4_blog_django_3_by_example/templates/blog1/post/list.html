@@ -17,8 +17,12 @@
         {{ post.body|truncatewords:30|linebreaks }}
     {% endfor %}
 
-    {#    the line below enables pagination #}
-    {% include "pagination.html" with page=posts %}
+    {#    THIS enables pagination #}
+
+    {#    This is the old template tag for the function based view#}
+    {#    {% include "pagination.html" with page=posts %}#}
+
+    {% include "pagination.html" with page=page_obj %}
 
 {% endblock %}
 
