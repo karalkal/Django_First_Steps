@@ -131,3 +131,6 @@ STATIC_URL = '/static/'  # FFS, I swear originally there wasn't a slash at the f
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# write emails to the console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
