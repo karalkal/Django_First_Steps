@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-app_name = 'blog1'  # needed as we are using namespace in parent urls (I think...)
+app_name = 'blog'  # needed as we are using namespace in parent urls (I think...)
 urlpatterns = [
 
     # post views
