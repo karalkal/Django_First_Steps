@@ -49,15 +49,14 @@ def post_share(request, post_id):
 
     if request.method == 'POST':  # if form has been submitted
         # create a form instance using the submitted data that is contained in request.POST
-        form = EmailPostForm(
-            request.POST)
+        form = EmailPostForm(request.POST)
         if form.is_valid():
             cd = form.cleaned_data  # dictionary of form fields and their values
             # data ready to be emailed
 
             # retrieve the absolute path of the post using its get_absolute_url() method
-            post_url = request.build_absolute_uri(
-                post.get_absolute_url())
+            post_url = request.build_absolute_uri(post.get_absolute_url())
+
             subject = f"{cd['name']} recommends you read " \
                       f"{post.title}"
             message = f"Read {post.title} at {post_url}\n\n" \
