@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of all Orders</title>
+</head>
+
+
+<body>
+
+<h2> to see details for each order separately, you must type its ID after tha slash in the current url
+    (not a particularly intelligent approach, I would admit...</h2>
+{% for order in all_orders %}
+    <div style="border: 8px solid #969696; float: left; margin: 17px; padding: 8px">
+    <h3>ID: {{ order.id }}</h3>
+    <p>Customer name: {{ order.person_name }}</p>
+    <p>Product Ordered: {{ order.product }}</p>
+    <p>Company: {{ order.company }}</p>
+    <p>Shipped on: {{ order.ship_date }}</p>
+    <p>Warranty: {{ order.ordered_warranty }}</p>
+    </div>
+{% endfor %}
+
+</body>
+</html>
