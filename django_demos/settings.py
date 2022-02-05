@@ -26,16 +26,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# Application definition
-
-INSTALLED_APPS = [
-    'task1_datetime_demo',
-    'task2_SU_lec1',
-    'task3_print_invoices',
-    'task4_blog_django_3_by_example',
-    # These two seem to be doing the same thing?
-    # 'task4_blog_django_3_by_example.apps.Task4BlogDjango3ByExampleConfig',
-
+DEFAULT_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,6 +34,21 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+THIRD_PARTY_APPS = [
+    'taggit',
+]
+
+LOCAL_APPS = [
+    'task1_datetime_demo',
+    'task2_SU_lec1',
+    'task3_print_invoices',
+    'task4_blog_django_3_by_example',  # in the book it is 'blog.apps.BlogConfig',
+    # The below one seems to be doing the same thing?
+    # 'task4_blog_django_3_by_example.apps.Task4BlogDjango3ByExampleConfig',
+]
+
+INSTALLED_APPS = DEFAULT_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
